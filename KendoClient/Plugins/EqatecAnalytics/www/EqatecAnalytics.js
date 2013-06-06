@@ -1,31 +1,4 @@
-var Analytics = function(){
-    
-    function start(accountId, version, successCallback, failureCallback) {
-	return cordova.exec(
-				successCallback,			 
-				failureCallback,						
-				'EqatecAnalytics',				
-				'start',								
-				[accountId, version]);
-    };
-    
-    function stop(successCallback, failureCallback) {
-	return cordova.exec(
-				successCallback,			 
-				failureCallback,						
-				'EqatecAnalytics',				
-				'stop',								
-				[]);
-    };
-    
-    return{
-    start:start,    
-    stop:stop
-    };
-}();
-
-
-//var Analytics = function () {};
+var Analytics = function () {};
 
 /**
  * Start Eqatec Analytics monitor
@@ -34,14 +7,15 @@ var Analytics = function(){
  * @param successCallback	The success callback
  * @param failureCallback	The error callback
  */
-/*Analytics.prototype.start = function(accountId, version, successCallback, failureCallback) {
+Analytics.prototype.start = function(accountId, version, successCallback, failureCallback) {
+	console.log("Analytics.prototype.start");
 	return cordova.exec(
 				successCallback,			 
 				failureCallback,						
 				'EqatecAnalytics',				
 				'start',								
 				[accountId, version]);
-};*/
+};
 
 /**
  * Stop Eqatec Analytics monitor
@@ -49,23 +23,52 @@ var Analytics = function(){
  * @param successCallback	The success callback
  * @param failureCallback	The error callback
  */
-/*Analytics.prototype.stop = function(successCallback, failureCallback) {
+Analytics.prototype.stop = function(successCallback, failureCallback) {
+	console.log("Analytics.prototype.stop");
 	return cordova.exec(
 				successCallback,			 
 				failureCallback,						
 				'EqatecAnalytics',				
 				'stop',								
 				[]);
-};*/
+};
 
 /**
  * Load Analytics
  */
 
-/*if(!window.plugins) {
+if(!window.plugins) {
     window.plugins = {};
 }
 
 if (!window.plugins.analytics) {
     window.plugins.analytics = new Analytics();
-}*/
+}
+
+
+
+/*
+var Analytics = function () {
+	function startMonitor(accountId, version, successCallback, failureCallback) {
+		return cordova.exec(
+					successCallback,			 
+					failureCallback,						
+					'EqatecAnalytics',				
+					'start',								
+					[accountId, version]);
+	};
+
+	function stopMonitor(successCallback, failureCallback) {
+		return cordova.exec(
+					successCallback,			 
+					failureCallback,						
+					'EqatecAnalytics',				
+					'stop',								
+					[]);
+	};
+
+	return {
+		start : startMonitor,
+		stop: stopMonitor
+	};
+}();*/
