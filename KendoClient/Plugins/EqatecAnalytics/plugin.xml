@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="com.telerik.plugins.eqatecanalytics"
+    version="1.0.0">
+
+	<engines>
+		<engine name="cordova" version=">2.7.0" />				
+	</engines>
+
+  <name>Eqatec Analytics</name>  
+  
+  <asset src="www/EqatecAnalytics.js" target="EqatecAnalytics.js" />
+  
+  <!-- android -->
+  <platform name="android">
+    <source-file src="src/android/EqatecAnalytics.java" target-dir="src/com/phonegap/plugins/eqatecanalytics" />
+    
+    <!--<config-file target="res/xml/config.xml" parent="/plugins">
+			<plugin name="EqatecAnalytics" value="com.telerik.plugins.EqatecAnalytics"/>
+    </config-file>-->
+    
+    <config-file target="res/xml/config.xml" parent="plugins">
+			<plugin name="EqatecAnalytics" value="com.telerik.plugins.EqatecAnalytics"/>
+    </config-file>
+  	
+  	<config-file target="AndroidManifest.xml" parent="/manifest">
+	    <uses-permission android:name="android.permission.INTERNET" />
+	  	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    </config-file>
+  	
+		<source-file src="src/android/analyticsmonitor.jar" target-dir="libs"/>		
+    				
+  </platform>    
+  
+  <!-- ios -->
+  <platform name="ios">
+    <config-file target="config.xml" parent="/cordova/plugins">
+       <plugin name="org.apache.cordova.facebook.Connect" value="FacebookConnectPlugin"/>
+   	</config-file>
+    
+    <source-file src="EQATECAnalyticsMonitor.h" />
+    <framework src="EQATECAnalyticsMonitoriOS" />
+  </platform>
+	
+</plugin>
