@@ -1,46 +1,49 @@
 <!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
 <html>
     <head>
-        <title></title>
-        <meta charset="utf-8" />        
-        <script src="cordova.js"></script>
-        <script src="EqatecAnalytics.js"></script>
-        <script src="Plugins/SQLite/SQLitePlugin.js"></script>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
+        <link rel="stylesheet" type="text/css" href="styles/index.css" />
+        <link href="kendo/styles/kendo.mobile.all.min.css" rel="stylesheet" />
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="EqatecAnalytics.js"></script>
         <script src="kendo/js/jquery.min.js"></script>
         <script src="kendo/js/kendo.mobile.min.js"></script>
-        <script src="scripts/hello-world.js"></script>
-        <link href="kendo/styles/kendo.mobile.all.min.css" rel="stylesheet" />
-        <link href="styles/main.css" rel="stylesheet" />
+        <script type="text/javascript" src="scripts/index.js"></script>
+        <title>Hello World</title>
     </head>
     <body>
-        <div data-role="view" id="tabstrip-home" data-title="Hello World!">
-            <h1>Welcome!</h1>
-            <p>
-                Icenium&trade; enables you to build cross-platform device applications regardless of your 
-                development platform by combining the convenience of a local development toolset with the 
-                power and flexibility of the cloud.
-            </p>
+        <<div data-role="view" id="tabstrip-home" data-title="Analytics Welcome">
+            <h1>Welcome to analytics</h1>
         </div>
 
-        <div data-role="view" id="tabstrip-uiinteraction" data-title="UI Interaction">
-            <h1>Say Hello!</h1>
-            <div id='helloWorldInput'>
-                <label for="txtName" style="display: inline-block;">Enter your name:</label>
-                <input type="text" id="txtName" value="" />
-            </div>
-            <div id='helloWorldText' style="display:block;"></div>
-            <div class="buttonArea">
-                <a id="resetButton" data-role="button" data-click="sayHelloReset" data-icon="refresh">Reset</a>
-                <a id="submitButton" data-role="button" data-click="sayHello" data-icon="compose">Submit</a>
-            </div>
+        <div data-role="view" id="tabstrip-tab" data-title="Tab">
+            <h1>Some tab</h1>            
         </div>
 
-        <div data-role="view" id="tabstrip-geolocation" data-title="Geolocation">
+        <div data-role="view" id="tabstrip-monitor" data-title="Monitor">
             <h1>My Location</h1>
-            <div id="geoLocationContainer">
-                <div id="myLocation">Unable to get location information. Please check your network connection and try again.</div>
-                <a id="refreshMap" data-role="button" data-click="getLocation" data-icon="refresh">Refresh Location</a>
-                <div id="map_canvas"></div>
+            <div>
+                <a data-role="button" data-click="app.stopMonitor" data-icon="stop">Stop Monitor</a>                
             </div>
         </div>
 
@@ -54,14 +57,15 @@
             <div data-role="footer">
                 <div data-role="tabstrip">
                     <a href="#tabstrip-home" data-icon="home">Home</a>
-                    <a href="#tabstrip-uiinteraction" data-icon="share">UI Interaction</a>
-                    <a href="#tabstrip-geolocation" data-icon="globe">Geolocation</a>
+                    <a href="#tabstrip-tab" data-icon="custom">Some Tab</a>
+                    <a href="#tabstrip-monitor" data-icon="close">Monitor</a>
                 </div>
             </div>
         </div>
-
-        <script>
-            var app = new kendo.mobile.Application(document.body, { transition: "slide", layout: "mobile-tabstrip" });
+        
+        <script type="text/javascript">
+            var kendoapp = new kendo.mobile.Application(document.body, { transition: "slide", layout: "mobile-tabstrip" });
+            app.initialize();            
         </script>
     </body>
 </html>
